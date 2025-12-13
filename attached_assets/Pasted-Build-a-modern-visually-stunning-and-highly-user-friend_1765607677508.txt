@@ -1,0 +1,91 @@
+Build a modern, visually stunning, and highly user-friendly developer portfolio website using Next.js (App Router), Tailwind CSS, and Framer Motion.
+
+The portfolio should feel premium, smooth, and interactive, with elegant animations and excellent performance, designed to impress recruiters and hiring managers.
+
+🛠 Tech Stack
+
+Next.js (App Router) for routing, SEO, and performance
+
+Tailwind CSS for clean, responsive styling
+
+Framer Motion for smooth animations and micro-interactions
+
+🎨 Color Palette (Modern Dark Theme)
+
+Background: #0B0F19
+
+Surface / Cards: #111827
+
+Primary Accent: #6366F1 (Indigo)
+
+Secondary Accent: #22D3EE (Cyan)
+
+Primary Text: #E5E7EB
+
+Muted Text: #9CA3AF
+
+Use subtle gradients, soft shadows, and optional light mode.
+
+✒️ Typography
+
+Headings: Space Grotesk (modern, tech-focused)
+
+Body: Inter (clean and highly readable)
+
+Apply strong typography hierarchy and generous spacing.
+
+🎯 Design & UX Guidelines
+
+Clean, modern UI with excellent visual hierarchy
+
+Dark mode as default
+
+Mobile-first and fully responsive
+
+Smooth scrolling and clear navigation
+
+Accessible, fast, and user-friendly
+
+🎥 Animations (Framer Motion)
+
+Smooth page transitions
+
+Scroll-based reveal animations (fade, slide, scale)
+
+Animated hero headline and call-to-action buttons
+
+Hover and tap animations on cards and buttons
+
+Micro-interactions for navigation and forms
+
+Optional elegant loading animation on first load
+
+Animations should be smooth and subtle, not overwhelming.
+
+📄 Sections to Include
+
+Hero Section: Animated intro, role, short tagline, CTA buttons
+
+About Me: Brief intro with motion-based content reveal
+
+Skills: Animated icons, badges, or progress indicators
+
+Projects: Interactive cards with hover effects, tech stack, GitHub & live links
+
+Experience / Education: Timeline with smooth motion
+
+Contact: Friendly form with animated feedback and social links
+
+✅ Quality Expectations
+
+Production-ready code structure
+
+SEO-optimized pages
+
+Recruiter-friendly and professional
+
+Consistent animation system
+
+Modern, confident, and memorable overall feel
+
+The final portfolio should clearly showcase the developer’s skills, creativity, and attention to detail, leaving a strong impression on recruiters.
