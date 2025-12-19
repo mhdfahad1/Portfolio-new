@@ -36,41 +36,38 @@ export function Contact() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+  // async function onSubmit(values: z.infer<typeof formSchema>) {
+  //   setIsSubmitting(true);
+  //   try {
+  //     // Using Formspree for contact form handling (free tier available)
+  //     // Replace 'your-formspree-id' with your actual Formspree form ID
+  //     const response = await fetch("https://formspree.io/f/your-formspree-id", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(values),
+  //     });
 
-      const data = await response.json();
+  //     if (!response.ok) {
+  //       throw new Error("Failed to send message");
+  //     }
 
-      if (!response.ok) {
-        throw new Error(data.message || "Failed to send message");
-      }
-
-      toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
-      });
-      form.reset();
-    } catch (error) {
-      toast({
-        title: "Error",
-        description:
-          error instanceof Error
-            ? error.message
-            : "Failed to send message. Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
+  //     toast({
+  //       title: "Message sent!",
+  //       description: "Thanks for reaching out. I'll get back to you soon.",
+  //     });
+  //     form.reset();
+  //   } catch (error) {
+  //     toast({
+  //       title: "Error",
+  //       description: "Failed to send message. Please try again later.",
+  //       variant: "destructive",
+  //     });
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // }
 
   return (
     <section id="contact" className="py-24 bg-card/20 border-t border-white/5">
@@ -98,7 +95,7 @@ export function Contact() {
             <CardContent className="p-8">
               <Form {...form}>
                 <form
-                  onSubmit={form.handleSubmit(onSubmit)}
+                  // onSubmit={form.handleSubmit(onSubmit)}
                   className="space-y-6"
                 >
                   <FormField
