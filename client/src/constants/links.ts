@@ -1,9 +1,9 @@
 // Social Media Links
 export const SOCIAL_LINKS = {
-  github: "https://github.com/yourusername", // Replace with your GitHub URL
-  linkedin: "https://linkedin.com/in/yourusername", // Replace with your LinkedIn URL
-  twitter: "https://twitter.com/yourusername", // Replace with your Twitter URL
-  email: "mailto:your-email@example.com", // Replace with your email
+  github: "https://github.com/mhdfahad1", // Replace with your GitHub URL
+  linkedin: "https://www.linkedin.com/in/muhammedfahadn/", // Replace with your LinkedIn URL
+  // twitter: "https://twitter.com/yourusername", // Replace with your Twitter URL
+  email: "mhdfaha53@gmail.com", // Replace with your email
 };
 
 // Project Links
@@ -28,5 +28,13 @@ export const PROJECT_LINKS = {
   viwo: {
     code: "https://github.com/yourusername/viwo-project",
     demo: "https://viwo-project-demo.vercel.app",
+  },
+  ecommerce: {
+    code: "https://github.com/yourusername/ecommerce-project",
+    demo: "https://ecommerce-project-demo.vercel.app",
+  },
+  social: {
+    code: "https://github.com/yourusername/social-media-project",
+    demo: "https://social-media-project-demo.vercel.app",
   },
 };

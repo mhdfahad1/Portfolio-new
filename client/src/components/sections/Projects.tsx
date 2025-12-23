@@ -21,6 +21,16 @@ const staggerContainer = {
 };
 
 export function Projects() {
+  const isValidUrl = (url: string) => {
+    return (
+      url &&
+      url !== "" &&
+      !url.includes("yourusername") &&
+      !url.includes("project-demo.vercel.app") &&
+      url.startsWith("http")
+    );
+  };
+
   return (
     <section id="projects" className="py-24 bg-card/30">
       <div className="container mx-auto px-6">
@@ -63,30 +73,34 @@ export function Projects() {
               links: PROJECT_LINKS.crm,
             },
             {
-              title: "Personal Finance & Investment Management System",
+              title: "E-Commerce Platform",
               description:
-                "The Personal Finance & Investment Management System is a modern and intuitive platform designed to help individuals and businesses track expenses, manage investments, and make data-driven financial decisions. The system provides a seamless user experience with real-time insights, budget planning, and portfolio management, enabling users to achieve financial stability and growth.",
+                "A full-featured e-commerce platform with product catalog, shopping cart, secure payment integration, user authentication, order management, and admin dashboard. Built with modern technologies to provide a seamless shopping experience with real-time inventory updates and responsive design.",
               technologies: [
-                "Shadcn UI",
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Stripe API",
+                "JWT Authentication",
                 "Tailwind CSS",
-                "Next.js",
-                "Prisma",
-                "uploadthing",
-                "TanStack React Query",
+                "Express.js",
               ],
-              links: PROJECT_LINKS.finance,
+              links: PROJECT_LINKS.ecommerce,
             },
             {
-              title: "Doctor-Patient Questionnaire & Attending System",
+              title: "Social Media Dashboard",
               description:
-                "The Doctor-Patient Questionnaire & Attending System is a digital platform designed to streamline patient consultations by collecting pre-appointment medical information through interactive questionnaires. It helps doctors make informed decisions by analyzing patient responses and providing an efficient attending system for developed healthcare management.",
+                "A comprehensive social media management platform that allows users to schedule posts, track engagement metrics, manage multiple social accounts, and analyze performance across different platforms. Features include automated posting, real-time analytics, and collaborative team management tools.",
               technologies: [
-                "Shadcn UI",
-                "Tailwind CSS",
                 "Next.js",
-                "TanStack React Query",
+                "TypeScript",
+                "Prisma",
+                "PostgreSQL",
+                "NextAuth.js",
+                "Tailwind CSS",
+                "Chart.js",
               ],
-              links: PROJECT_LINKS.doctor,
+              links: PROJECT_LINKS.social,
             },
             {
               title: "Workmen Productivity Management",
@@ -149,33 +163,54 @@ export function Projects() {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full border-white/10 hover:bg-white/5"
-                      asChild
-                    >
-                      <a
-                        href={project.links.code}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    {isValidUrl(project.links.code) ? (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full border-white/10 hover:bg-white/5"
+                        asChild
+                      >
+                        <a
+                          href={project.links.code}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="mr-2 h-4 w-4" /> Code
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full border-white/10 opacity-50 cursor-not-allowed"
+                        disabled
                       >
                         <Github className="mr-2 h-4 w-4" /> Code
-                      </a>
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="w-full bg-primary hover:bg-primary/90"
-                      asChild
-                    >
-                      <a
-                        href={project.links.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      </Button>
+                    )}
+                    {isValidUrl(project.links.demo) ? (
+                      <Button
+                        size="sm"
+                        className="w-full bg-primary hover:bg-primary/90"
+                        asChild
+                      >
+                        <a
+                          href={project.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="mr-2 h-4 w-4" /> Demo
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        size="sm"
+                        className="w-full bg-primary/50 cursor-not-allowed"
+                        disabled
                       >
                         <ExternalLink className="mr-2 h-4 w-4" /> Demo
-                      </a>
-                    </Button>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
