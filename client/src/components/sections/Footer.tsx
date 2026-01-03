@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="py-8 border-t border-white/5 text-center text-sm text-muted-foreground bg-background">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p>© 2025 Dev Portfolio. All rights reserved.</p>
+        <p>© 2026 Dev Portfolio. All rights reserved.</p>
         <div className="flex gap-6">
           {/* <a
             href={SOCIAL_LINKS.twitter}
