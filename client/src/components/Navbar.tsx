@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { Download } from "lucide-react";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,6 +12,34 @@ export function Navbar() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const handleDownloadCV = async () => {
+    try {
+      // Fetch the CV file
+      const response = await fetch("/cv.pdf.pdf");
+      if (!response.ok) {
+        throw new Error("Failed to fetch CV file");
+      }
+
+      // Convert to blob
+      const blob = await response.blob();
+
+      // Create download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Muhammed_Fahad_CV.pdf";
+      document.body.appendChild(link);
+      link.click();
+
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading CV:", error);
+      alert("Failed to download CV. Please try again later.");
+    }
   };
 
   const navLinks = [
@@ -32,7 +61,7 @@ export function Navbar() {
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground"
+          className="hidden md:flex gap-8 items-center text-sm font-medium text-muted-foreground"
         >
           {navLinks.map((link) => (
             <a
@@ -50,6 +79,15 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          <Button
+            onClick={handleDownloadCV}
+            variant="outline"
+            size="sm"
+            className="gap-2 hover:text-primary"
+          >
+            <Download className="h-4 w-4" />
+            My CV
+          </Button>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -145,6 +183,24 @@ export function Navbar() {
                     {link.label}
                   </motion.a>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navLinks.length * 0.1, duration: 0.3 }}
+                >
+                  <Button
+                    onClick={() => {
+                      handleDownloadCV();
+                      closeMobileMenu();
+                    }}
+                    variant="outline"
+                    size="sm"
+                    className="w-full gap-2 hover:text-primary"
+                  >
+                    <Download className="h-4 w-4" />
+                    My CV
+                  </Button>
+                </motion.div>
               </nav>
             </div>
           </motion.div>
