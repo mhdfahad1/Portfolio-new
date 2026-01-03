@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { SOCIAL_LINKS } from "@/constants/links";
+import { Typewriter } from "@/components/ui/Typewriter";
+import { Particles } from "@/components/Particles";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -33,8 +35,9 @@ export function Hero() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex items-center justify-center pt-20 hero-gradient"
+      className="relative min-h-screen flex items-center justify-center pt-20 hero-gradient overflow-hidden"
     >
+      <Particles />
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <motion.div
           variants={staggerContainer}
@@ -52,18 +55,37 @@ export function Hero() {
           </motion.div>
           <motion.h1
             variants={fadeInUp}
-            className="text-5xl md:text-7xl font-bold font-heading leading-tight"
+            className="text-5xl md:text-7xl font-bold font-heading leading-tight min-h-[1.2em]"
           >
-            Building <span className="text-gradient">Digital Experiences</span>{" "}
+            <Typewriter
+              words={[
+                "Building Digital Experiences",
+                "Creating Modern Web Apps",
+                "Developing Scalable Solutions",
+                "Crafting Beautiful Interfaces",
+              ]}
+              className="text-gradient"
+            />{" "}
             that Matter.
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="text-xl text-muted-foreground max-w-lg"
+            className="text-xl text-muted-foreground max-w-lg min-h-[1.5em]"
           >
-            I'm a Full Stack Developer specializing in building exceptional
-            digital experiences. Currently focused on accessible, human-centered
-            products.
+            I'm a{" "}
+            <Typewriter
+              words={[
+                "Full Stack Developer",
+                "React Specialist",
+                "Next.js Expert",
+                "Problem Solver",
+              ]}
+              className="text-primary font-semibold"
+              typingSpeed={80}
+              deletingSpeed={40}
+            />{" "}
+            specializing in building exceptional digital experiences. Currently
+            focused on accessible, human-centered products.
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 pt-4">
             <Button

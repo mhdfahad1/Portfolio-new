@@ -1,4 +1,7 @@
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { Navbar } from "@/components/Navbar";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
 import { Hero } from "@/components/sections/Hero";
 import { Skills } from "@/components/sections/Skills";
 import { Certifications } from "@/components/sections/Certifications";
@@ -10,6 +13,8 @@ import { Footer } from "@/components/sections/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+      <LoadingScreen />
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <Skills />
@@ -18,6 +23,7 @@ export default function Home() {
       <Experience />
       <Contact />
       <Footer />
+      <BackToTop />
     </div>
   );
 }

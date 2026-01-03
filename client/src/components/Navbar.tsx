@@ -1,10 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { Download } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Download, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Avoid hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -88,6 +96,21 @@ export function Navbar() {
             <Download className="h-4 w-4" />
             My CV
           </Button>
+          {mounted && (
+            <Button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              variant="outline"
+              size="icon"
+              className="hover:text-primary"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
+            </Button>
+          )}
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -201,6 +224,38 @@ export function Navbar() {
                     My CV
                   </Button>
                 </motion.div>
+                {mounted && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: (navLinks.length + 1) * 0.1,
+                      duration: 0.3,
+                    }}
+                  >
+                    <Button
+                      onClick={() => {
+                        setTheme(theme === "dark" ? "light" : "dark");
+                        closeMobileMenu();
+                      }}
+                      variant="outline"
+                      size="sm"
+                      className="w-full gap-2 hover:text-primary"
+                    >
+                      {theme === "dark" ? (
+                        <>
+                          <Sun className="h-4 w-4" />
+                          Light Mode
+                        </>
+                      ) : (
+                        <>
+                          <Moon className="h-4 w-4" />
+                          Dark Mode
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
+                )}
               </nav>
             </div>
           </motion.div>
