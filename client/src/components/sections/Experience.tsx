@@ -16,11 +16,18 @@ export function Experience() {
         <div className="space-y-12">
           {[
             {
+              role: "Full Stack Developer",
+              company: "NewAgeSys Solutions",
+              period: "March 2026 - Present",
+              description:
+                "Working as a full-stack developer, building modern web applications, contributing to both frontend and backend development, and collaborating closely with teams to deliver scalable and user-focused solutions.",
+            },
+            {
               role: "Software Engineer",
               company: "Bluecast Technologies",
-              period: "February 2024 - Present",
+              period: "February 2024 - March 2026",
               description:
-                "Contributed to all phases of the development lifecycle, from client meetings to code delivery. Developed scalable, maintainable software solutions, adhering to best coding practices. Collaborated with cross-functional teams to troubleshoot and optimize systems. Worked with diverse technologies, staying current with industry trends.",
+                "Contributed to all phases of the development lifecycle, from client meetings to code delivery. Developed scalable, maintainable software solutions, adhered to best coding practices, and collaborated with cross-functional teams to troubleshoot and optimize systems.",
             },
             {
               role: "Intern",
